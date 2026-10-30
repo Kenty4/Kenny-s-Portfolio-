@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Business Operator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell">
+  <aside>
+    <div class="brand"><div class="logo">AI</div><div><b>Business Operator</b><small>Manager Loop</small></div></div>
+    <nav>
+      <button class="nav active" data-view="overview">Overview</button>
+      <button class="nav" data-view="prospects">Prospects</button>
+      <button class="nav" data-view="approvals">Approvals</button>
+      <button class="nav" data-view="strategy">Strategy</button>
+    </nav>
+    <div class="side-note">
+      <b>Approval boundary</b>
+      <p>The operator can research, qualify and draft outreach. Sending stays human-approved.</p>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <div><span class="eyebrow">AUTONOMOUS OPERATIONS</span><h1 id="pageTitle">Overview</h1></div>
+      <button id="runBtn" class="primary">Run manager cycle</button>
+    </header>
+
+    <section id="overview" class="view">
+      <div class="grid stats">
+        <div class="card stat"><span>Cycle status</span><strong id="status">—</strong><small id="cycleTime">No cycle yet</small></div>
+        <div class="card stat"><span>Prospects</span><strong id="prospectsCount">0</strong><small>researched this cycle</small></div>
+        <div class="card stat"><span>Qualified</span><strong id="qualifiedCount">0</strong><small>score ≥ 70</small></div>
+        <div class="card stat"><span>Approvals</span><strong id="approvalCount">0</strong><small>waiting for you</small></div>
+      </div>
+      <div class="grid two">
+        <div class="card">
+          <div class="card-head"><div><span class="eyebrow">CURRENT CYCLE</span><h2 id="cycleTitle">No cycle</h2></div><span id="statusPill" class="pill">Idle</span></div>
+          <p id="objective">Set a business objective and run your first cycle.</p>
+          <div class="progress"><i id="progressBar"></i></div>
+          <div class="steps" id="steps"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><div><span class="eyebrow">NEXT ACTION</span><h2>Human review</h2></div></div>
+          <p id="nextAction">Run a cycle to discover and qualify prospects.</p>
+          <button class="secondary" data-view-target="approvals">Open approvals</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><div><span class="eyebrow">RECENT CYCLES</span><h2>Manager history</h2></div></div>
+        <div id="history" class="history"></div>
+      </div>
+    </section>
+
+    <section id="prospects" class="view hidden">
+      <div class="card"><div class="card-head"><div><span class="eyebrow">RESEARCH + QUALIFY</span><h2>Prospects</h2></div></div>
+      <div id="prospectTable" class="table"></div></div>
+    </section>
+
+    <section id="approvals" class="view hidden">
+      <div id="approvalList"></div>
+    </section>
+
+    <section id="strategy" class="view hidden">
+      <div class="card">
+        <span class="eyebrow">BUSINESS OBJECTIVE</span>
+        <h2>What should the operator pursue?</h2>
+        <textarea id="objectiveInput" placeholder="Example: Sell AI automation audits to small businesses in Nigeria."></textarea>
+        <button id="saveObjective" class="primary">Save objective</button>
+        <p class="muted">The next manager cycle uses this objective. API keys are optional; without them the app runs in demo mode.</p>
+      </div>
+      <div class="card danger-card"><h2>Reset local data</h2><p>Deletes cycles, prospects and approvals stored by this local app.</p><button id="resetBtn" class="danger">Reset</button></div>
+    </section>
+  </main>
+</div>
+<div id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
